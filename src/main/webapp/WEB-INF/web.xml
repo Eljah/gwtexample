@@ -15,30 +15,32 @@
     <servlet>
         <servlet-name>springGwtRemoteServiceServlet</servlet-name>
         <servlet-class>org.spring4gwt.server.SpringGwtRemoteServiceServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>springGwtRemoteServiceServlet</servlet-name>
-        <url-pattern>resources.hellogwt/springGwtServices/greetingService/*</url-pattern>
+        <url-pattern>resources.hellogwt/springGwtServices/*</url-pattern>
     </servlet-mapping>
 
-    <welcome-file-list>
+    <!--<welcome-file-list>-->
         <!--<welcome-file>HelloGWT.html</welcome-file>-->
-        <welcome-file>/resources/index.html</welcome-file>
-    </welcome-file-list>
+        <!--<welcome-file>/resources/index.html</welcome-file>-->
+    <!--</welcome-file-list>-->
 
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>2</load-on-startup>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/goods/*</url-pattern>
     </servlet-mapping>
 
-
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
 
 </web-app>

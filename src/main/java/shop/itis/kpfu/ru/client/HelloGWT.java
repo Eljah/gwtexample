@@ -7,6 +7,9 @@ import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
+import shop.itis.kpfu.ru.client.service.GoodService;
+import shop.itis.kpfu.ru.client.service.GoodServiceAsync;
+import shop.itis.kpfu.ru.shared.model.Good;
 
 
 /*
@@ -23,8 +26,10 @@ public class HelloGWT implements EntryPoint {
 
 public class HelloGWT implements EntryPoint {
     private GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+    private GoodServiceAsync goodServiceAsyncService = GWT.create(GoodService.class);
+
     private TextBox nameTextBox = new TextBox();
-    private Label greetingLabel = new Label("Hello, GWT!");
+    private Label greetingLabel = new Label("Good just added!");
 
     @Override
     public void onModuleLoad() {
@@ -46,7 +51,10 @@ public class HelloGWT implements EntryPoint {
         nameTextBox.addKeyUpHandler(new KeyUpHandler() {
             @Override
             public void onKeyUp(KeyUpEvent keyUpEvent) {
-                greetingService.greet(nameTextBox.getText(), callback);
+                Good g=new Good();
+                g.setName(nameTextBox.getText());
+                goodServiceAsyncService.addGood(g,callback);
+                //greetingService.greet(, callback);
             }
         });
     }
