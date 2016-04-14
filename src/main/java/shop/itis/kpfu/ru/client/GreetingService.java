@@ -1,4 +1,4 @@
-package com.hellogwt.client;
+package shop.itis.kpfu.ru.client;
 
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;

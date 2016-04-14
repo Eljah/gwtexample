@@ -1,6 +1,6 @@
-package com.hellogwt.server;
+package shop.itis.kpfu.ru.server;
 
-import com.hellogwt.client.GreetingService;
+import shop.itis.kpfu.ru.client.GreetingService;
 import org.springframework.stereotype.Service;
 
 @Service("greetingService")
