@@ -19,7 +19,7 @@ public class GoodServiceImpl implements GoodService{
 
     @Override
     public String addGood(Good good) {
-        good.setName("asda");
+        //good.setName("asda");
         goodRepository.save(good); return good.getName();
     }
 

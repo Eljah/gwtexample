@@ -3,8 +3,7 @@ package shop.itis.kpfu.ru.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.KeyUpEvent;
-import com.google.gwt.event.dom.client.KeyUpHandler;
+import com.google.gwt.event.dom.client.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 import shop.itis.kpfu.ru.client.service.GoodService;
@@ -48,14 +47,16 @@ public class HelloGWT implements EntryPoint {
             }
         };
 
-        nameTextBox.addKeyUpHandler(new KeyUpHandler() {
+        nameTextBox.addKeyDownHandler(new KeyDownHandler() {
             @Override
-            public void onKeyUp(KeyUpEvent keyUpEvent) {
-                Good g=new Good();
-                g.setName(nameTextBox.getText());
-                goodServiceAsyncService.addGood(g,callback);
-                //greetingService.greet(, callback);
+            public void onKeyDown(KeyDownEvent event) {
+                if(event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
+                    Good g=new Good();
+                    g.setName(nameTextBox.getText());
+                    goodServiceAsyncService.addGood(g,callback);
+                }
             }
         });
+
     }
 }
